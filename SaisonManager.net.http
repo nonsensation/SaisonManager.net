@@ -1,0 +1,6 @@
+@SaisonManager.net_HostAddress = http://localhost:5234
+
+GET {{SaisonManager.net_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

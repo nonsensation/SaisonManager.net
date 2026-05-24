@@ -1,0 +1,145 @@
+
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# .NET formatting rules
+[*.{cs,vb}]
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false
+
+
+
+# CSharp formatting rules:
+# See: https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/csharp-formatting-options
+[*.cs]
+
+# all, none
+# accessors, anonymous_methods, anonymous_types, control_blocks, events,
+# indexers, lambdas, local_functions, methods, object_collection_array_initializers, properties, types
+
+csharp_new_line_before_open_brace = methods, properties, control_blocks, types 
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_between_query_expression_clauses = true
+
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_indent_labels = flush_left
+csharp_indent_block_contents = true
+csharp_indent_braces = false
+csharp_indent_case_contents_when_block = true
+
+csharp_space_after_cast = false
+csharp_space_after_keywords_in_control_flow_statements = false
+csharp_space_between_parentheses = control_flow_statements#, type_casts
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_after_colon_in_inheritance_clause = true
+csharp_space_between_method_declaration_parameter_list_parentheses = true
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
+csharp_space_between_method_declaration_name_and_open_parenthesis = false
+csharp_space_between_method_call_parameter_list_parentheses = true
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+csharp_space_between_method_call_name_and_opening_parenthesis = false
+csharp_space_after_comma = true
+csharp_space_before_comma = true
+csharp_space_after_dot = false
+csharp_space_before_dot = false
+csharp_space_after_semicolon_in_for_statement = true
+csharp_space_before_semicolon_in_for_statement = true
+
+csharp_space_before_open_square_brackets = false
+csharp_space_between_empty_square_brackets = false
+csharp_space_between_square_brackets = true
+
+# keep assignments aligned
+csharp_space_around_declaration_statements = true # ignore
+csharp_space_around_binary_operators = true # ignore
+
+csharp_preserve_single_line_statements = false
+csharp_preserve_single_line_blocks = true
+
+
+# disable annoying warnings
+
+[*.{cs,vb}]
+dotnet_diagnostic.IDE0060.severity = none # unused parameter
+dotnet_diagnostic.CA2007.severity = none # configureawait
+dotnet_diagnostic.S2326.severity = none # unused parameter
+dotnet_diagnostic.S907.severity = none # remove goto
+dotnet_diagnostic.CA1062.severity = none # public method possible null parameter
+dotnet_diagnostic.S1481.severity = none # unused parameter
+dotnet_diagnostic.CA1031.severity = suggestion # catch more refined exception or rethrow
+dotnet_diagnostic.CA2234.severity = suggestion # httpclient getasync uri instead of string
+dotnet_diagnostic.CS0219.severity = none # variable assigned but never used
+dotnet_diagnostic.S1854.severity = none # remove useless assignment
+dotnet_diagnostic.CA1819.severity = none # properties should not return arrays
+dotnet_diagnostic.S6608.severity = none # indexing instead of first/last
+dotnet_diagnostic.S125.severity = none # remove commented code
+dotnet_diagnostic.S108.severity = none # remove block of code
+dotnet_diagnostic.S3604.severity = none # remove member initializer when all set one
+dotnet_diagnostic.S1144.severity = none # remove unused private setter
+dotnet_diagnostic.IDE0051.severity = none # private member is unused
+dotnet_diagnostic.CA1823.severity = none # private member is unused
+dotnet_diagnostic.CA1805.severity = none # member explicitly defaulted
+dotnet_diagnostic.CA1860.severity = none # use .Length instead of .Any()
+dotnet_diagnostic.S1125.severity = none # remove unnesseccary boolean literal
+dotnet_diagnostic.S1172.severity = none # remove unused parameter
+dotnet_diagnostic.CS0168.severity = none # variable never used
+dotnet_diagnostic.S1135.severity = suggestion # TODO
+dotnet_diagnostic.S1450.severity = none # Remove the field '_config' and declare it as a local variable in the relevant methods
+dotnet_diagnostic.IDE0052.severity = none # Private member 'SmCrawlService._statsDb' can be removed as the value assigned to it is never read
+dotnet_diagnostic.S4487.severity = none # Remove this unread private field '_statsDb' or refactor the code to use its value
+dotnet_diagnostic.S2933.severity = suggestion # Make 'totalGamesProcessed' 'readonly'
+dotnet_diagnostic.CS8618.severity = suggestion # Non-nullable field 'currentSeasonId' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the field as nullable
+dotnet_diagnostic.CA1829.severity = none # Use the "Count" property instead of Enumerable.Count()CA1829
+dotnet_diagnostic.S2971.severity = none # Use 'Count' property here instead.S2971
+dotnet_diagnostic.CA5394.severity = suggestion # Random is an insecure random number generator. Use cryptographically secure random number generators when randomness is required for security
+dotnet_diagnostic.CS1998.severity = none # This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread
+dotnet_diagnostic.CA1822.severity = none # Member 'ProcessClubs' does not access instance data and can be marked as static
+dotnet_diagnostic.S1186.severity = none # Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation
+dotnet_diagnostic.CA1024.severity = none # Use properties where appropriate
+dotnet_diagnostic.S1694.severity = suggestion # Convert this 'abstract' class to an interface
+dotnet_diagnostic.S2325.severity = suggestion # Make 'WriteProperty' a static method
+dotnet_diagnostic.CA1008.severity = suggestion # Add a member to PenaltyCode that has a value of zero with a suggested name of 'None'
+dotnet_diagnostic.CA2227.severity = suggestion # Change 'Seasons' to be read-only by removing the property setter
+dotnet_diagnostic.CA1056.severity = suggestion # Change the type of property 'SmV2GameOperation.LogoUrl' from 'string' to 'System.Uri'
+dotnet_diagnostic.CA1720.severity = suggestion # Identifier 'Short' contains type name
+dotnet_diagnostic.S1066.severity = suggestion # Merge this if statement with the enclosing one
+dotnet_diagnostic.CA1707.severity = suggestion # Remove the underscores from member name Unihockey.Saisonmanager.Infrastructure.Services.SmRemapService.Remap_All()
+dotnet_diagnostic.S3267.severity = suggestion # Loop should be simplified by calling Select(smArena => smArena.Id))
+dotnet_diagnostic.S2139.severity = none # Either log this exception and handle it, or rethrow it with some contextual information
+dotnet_diagnostic.CA1000.severity = suggestion # Do not declare static members on generic types
+dotnet_diagnostic.CA1040.severity = suggestion # Avoid empty interfaces
+dotnet_diagnostic.CA1724.severity = suggestion # The type name Validation conflicts in whole or in part with the namespace name 'Microsoft.AspNetCore.Mvc.ModelBinding.Validation'. Change either name to eliminate the conflict
+dotnet_diagnostic.CS0169.severity = none # The field 'SmRemapService.currentSeasonId' is never used
+dotnet_diagnostic.CS0414.severity = none # The field 'SmRemapService.totalGamesProcessed' is assigned but its value is never used
+dotnet_diagnostic.CA2225.severity = none # Provide a method named 'ToInt32' or 'FromSmId' as an alternate for operator op_Implicit
+dotnet_diagnostic.CA1812.severity = none # 'SmApiMirrorEndpoints.SmApiMirrorRequestParameter' is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static members, make it 'static' (Module in Visual Basic).
+dotnet_diagnostic.S4663.severity = none # Remove this empty comment
+dotnet_diagnostic.S3358.severity = suggestion # Extract this nested ternary operation into an independent statement.
+dotnet_diagnostic.S1199.severity = none # Extract this nested code block into a separate method.
+dotnet_diagnostic.CA1848.severity = suggestion # improved performance logger (enable later?)
+dotnet_diagnostic.CA1861.severity = suggestion # Prefer 'static readonly' fields over constant array arguments if the called method is called repeatedly and is not mutating the passed array
+dotnet_diagnostic.S2629.severity = suggestion # dont use string interpolation in logger
+dotnet_diagnostic.CA2254.severity = suggestion # dont use string interpolation in logger
+dotnet_diagnostic.S6966.severity = suggestion # use async instead
+dotnet_diagnostic.CA1305.severity = suggestion # The behavior of 'int.Parse(string)' could vary based on the current user's locale settings. Replace this call in 'SmRemapService.Remap_Init()' with a call to 'int.Parse(string, IFormatProvider)'
+dotnet_diagnostic.S3263.severity = suggestion # Move this field's initializer into a static constructor
+dotnet_diagnostic.CA1873.severity = suggestion # Evaluation of this argument may be expensive and unnecessary if logging is disabled
+dotnet_diagnostic.CA1515.severity = suggestion # Because an application's API isn't typically referenced from outside the assembly, types can be made internal
+dotnet_diagnostic.CA1051.severity = suggestion # Do not declare visible instance fields
+dotnet_diagnostic.CA1515.severity = suggestion # Because an application's API isn't typically referenced from outside the assembly, types can be made internal
+dotnet_diagnostic.IDE0290.severity = suggestion # Use primary constructor
+dotnet_diagnostic.S1854.severity = suggestion # 
+dotnet_diagnostic.S1854.severity = suggestion # 
+dotnet_diagnostic.S1854.severity = suggestion # 
+dotnet_diagnostic.S1854.severity = suggestion # 
+dotnet_diagnostic.S1854.severity = suggestion # 
+
